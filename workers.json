@@ -1,0 +1,14 @@
+{
+    "workers": [
+        {"ws_id": "worker_01", "ws_name": "示例Agent - 技能测试", "host": "localhost", "port": 8767, "capabilities": ["ai_skills_testing"]},
+        {"ws_id": "worker_02", "ws_name": "示例Agent - 数据查询", "host": "localhost", "port": 8768, "capabilities": ["data_query"]},
+        {"ws_id": "worker_03", "ws_name": "示例Agent - 通用能力", "host": "localhost", "port": 8769, "capabilities": ["agent_capability"]},
+        {"ws_id": "worker_04", "ws_name": "示例Agent - 技能验证", "host": "localhost", "port": 8770, "capabilities": ["ai_skills_testing"]},
+        {"ws_id": "worker_05", "ws_name": "示例Agent - 团队管理", "host": "localhost", "port": 8771, "capabilities": ["skill_incubation"]},
+        {"ws_id": "worker_06", "ws_name": "示例Agent - 验证助手", "host": "localhost", "port": 8772, "capabilities": ["skill_verification"]},
+        {"ws_id": "worker_07", "ws_name": "示例Agent - 开发集成", "host": "localhost", "port": 8773, "capabilities": ["dev_integration"]},
+        {"ws_id": "worker_08", "ws_name": "示例Agent - 助手服务", "host": "localhost", "port": 8774, "capabilities": []},
+        {"ws_id": "worker_09", "ws_name": "示例Agent - 结算服务", "host": "localhost", "port": 8775, "capabilities": ["settlement"]}
+    ],
+    "last_updated": "2026-04-17T13:51:00"
+}
