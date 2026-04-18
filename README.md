@@ -1,109 +1,65 @@
-# 🚀 PAO - 个人AI操作系统
+# 🚀 PAO System - 多Agent通信框架
 
-PAO (Personal AI Operating System) 是一个跨设备、去中心化的AI协同系统，让您的AI助手能在所有设备间无缝同步和进化。
+[![OpenClaw](https://img.shields.io/badge/Platform-OpenClaw-blue)](https://github.com/openclaw/openclaw)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-green)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow)]()
 
-## ✨ 核心特性
+PAO (Personal AI Operator) System — 支持 OpenClaw、Claude Code、Cursor 等多平台的 Agent 互联互通框架。
 
-### 🎯 分布式智能
-- **多设备协同**：手机、电脑、平板设备间的智能同步
-- **去中心化架构**：不依赖单一服务器，保护隐私
-- **实时通信**：毫秒级延迟的设备间通信
+## 🎯 适用场景
 
-### 🧠 记忆进化
-- **情境感知记忆**：基于使用场景的记忆存储和检索
-- **技能自我进化**：AI能力随使用自动改进
-- **经验共享**：一个设备学习，所有设备受益
+- 🤖 OpenClaw 多 Agent 协作通信
+- 🔄 Agent 任务分发与调度
+- 🔗 跨平台 AI 能力整合
+- 📡 多工作区消息总线
 
-### 🔒 隐私安全
-- **端到端加密**：所有通信和存储默认加密
-- **本地优先**：敏感数据永远在您的设备上
-- **用户可控**：完全掌握自己的数据和AI模型
+## ✨ 核心功能
 
-## 📋 开发计划
-
-### 功能说明
-
-PAO 系统提供以下核心功能：
-
-1. **设备发现与连接** - 通过 zeroconf 自动发现同网络设备
-2. **WebSocket 实时通信** - 毫秒级延迟的双向通信
-3. **记忆同步系统** - 跨设备记忆存储与自动同步
-4. **任务分发机制** - 支持向其他工作区发送任务
-5. **协议处理** - 支持多种通信协议
-
-### 第一阶段（第1周）：设备发现与基础通信 ✅
-- ✅ 设备自动发现（zeroconf）
-- ✅ 实时通信框架（WebSocket）
-- ✅ 基础安全与配置
-
-### 第二阶段（第2-3周）：本地记忆系统 ✅
-- ✅ 记忆存储与检索（JSON文件 + 内存索引）
-- ✅ 基础同步机制（最后写入获胜策略）
-- ✅ 冲突检测与自动合并
-- ✅ 记忆管理界面（查询、更新、删除）
-- ✅ 设备间自动同步
-
-### 第三阶段（第4周）：分布式同步 ✅
-- ✅ CRDT 冲突解决
-- ✅ P2P网络优化（连接池、断线重连、消息队列）
-- ✅ 同步状态监控（状态跟踪、性能指标、日志记录）
-
-### 第四阶段（第5-6周）：智能进化 ✅
-- ✅ 技能管理与进化
-- ✅ 情境感知系统
-- ✅ 学习循环实现
-
-### 第五阶段（第7-8周）：集成部署 🔄
-- 🔄 系统集成测试（进行中）
-- 🔄 性能优化
-- 🔄 跨平台部署
+| 功能 | 说明 |
+|------|------|
+| 任务分发 | 向指定 Agent 发送任务并接收结果 |
+| 消息总线 | HTTP 接口，支持任意 Agent 互联 |
+| 技能管理 | 自动注册和加载 AI 技能 |
+| 协议处理 | 支持 WebSocket、HTTP 等多种协议 |
 
 ## 🚀 快速开始
 
-### 安装依赖
 ```bash
+# 1. 克隆仓库
+git clone https://github.com/hansondong/pao-system.git
+cd pao-system
+
+# 2. 安装依赖
 pip install -r requirements.txt
+
+# 3. 启动监听服务
+python pao_listener.py
 ```
 
-### 启动系统
-```bash
-python pao.py start
+## 📖 使用示例
+
+```python
+import httpx
+
+# 向其他 Agent 发送任务
+response = httpx.post('http://localhost:18761/task', json={
+    "task_action": "安全扫描",
+    "task_params": {"path": "/project"}
+})
+print(response.json())
 ```
 
-### 运行演示
-```bash
-# 设备发现演示（第一阶段）
-python pao.py demo
-# 或直接选择演示类型
+## 📦 在 OpenClaw 中使用
 
-# 记忆同步演示（第二阶段）
-python examples/memory_sync_demo.py
+将本仓库作为 Skill 安装：
 ```
-
-### 添加新设备
-在新设备上运行同样的命令，系统会自动发现并连接。
-
-## 🛠️ 技术架构
-
-### 核心组件
-- **设备发现层**：zeroconf + mDNS
-- **通信层**：WebSocket + 自定义协议
-- **存储层**：SQLite + CRDT 同步
-- **安全层**：AES-256 + 设备证书
-
-### 设计原则
-1. **用户主权**：数据永远属于用户
-2. **去中心化**：不依赖任何中心服务器
-3. **渐进增强**：从简单到复杂，确保每一步都可工作
-4. **隐私优先**：默认加密，最小化数据暴露
-
-## 📚 文档
-- [开发计划](./docs/development_plan.md)
-- [API参考](./docs/api_reference.md)
-- [部署指南](./docs/deployment.md)
+openclaw skill install https://github.com/hansondong/pao-system
+```
 
 ## 🤝 贡献
+
 欢迎提交 Issue 和 Pull Request！
 
 ## 📄 许可证
+
 MIT License - 详见 LICENSE 文件
