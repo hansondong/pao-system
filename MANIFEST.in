@@ -1,0 +1,7 @@
+include requirements.txt
+include README.md
+include LICENSE
+recursive-include src *.py
+recursive-include src *.json
+recursive-include src *.yaml
+recursive-include src *.yml
